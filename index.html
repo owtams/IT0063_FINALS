@@ -11,7 +11,7 @@
         }
         .login-window{
             width: 500px;
-            height: 350px;
+            height: 400px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
@@ -22,8 +22,12 @@
         }
 
         .btn{
-            width: 30%;
-            margin-left: 70%;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .text-center {
+            margin-top: 5px;
         }
 
         .email-error {
@@ -36,38 +40,51 @@
 <body>
     <div class="login-window">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="text-center mt-5">Login</h1>
+            <h1 class="text-center mt-5" id="form-title">Login</h1>
+            <form id="loginForm" name="loginForm" action="Home.html" method="post" onsubmit="return validateForm('loginForm')">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                    <div id="email-error" class="email-error"></div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <form name="loginForm" action="Home.html" method="post" onsubmit="return validateForm()">
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="email" name="email">
-                            <div id="email-error" class="email-error"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <form id="signupForm" name="signupForm" action="index.html" method="post" style="display: none;" onsubmit="return validateForm('signupForm')">
+                <div class="mb-3">
+                    <label for="signup-email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="signup-email" name="signup-email">
+                    <div id="signup-email-error" class="email-error"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="signup-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signup-password" name="signup-password">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <div class="text-center mt-3">
+                    <button class="btn btn-link" id="sign-in-button" onclick="toggleForm()">Already have an Account? Sign-in</button>
+                </div>
+            </form>
+            <div class="text-center mb-3">
+                <button class="btn btn-link" id="sign-up-button" onclick="toggleForm()">Don't have an account? Sign Up</button>
             </div>
         </div>
     </div>
     <script>
-
         document.getElementById("email").addEventListener("input", function() {
-            validateEmail();
+            validateEmail('email', 'email-error');
         });
 
-        function validateEmail() {
-            var email = document.forms["loginForm"]["email"].value;
-            var errorElement = document.getElementById("email-error");
+        document.getElementById("signup-email").addEventListener("input", function() {
+            validateEmail('signup-email', 'signup-email-error');
+        });
+
+        function validateEmail(emailId, errorId) {
+            var email = document.forms["loginForm"][emailId].value;
+            var errorElement = document.getElementById(errorId);
 
             if (email.indexOf("@") == -1) {
                 errorElement.innerHTML = "Please enter a valid email address";
@@ -76,9 +93,9 @@
             }
         }
 
-        function validateForm() {
-            var email = document.forms["loginForm"]["email"].value;
-            var password = document.forms["loginForm"]["password"].value;
+        function validateForm(formId) {
+            var email = document.forms[formId]["email"].value;
+            var password = document.forms[formId]["password"].value;
             var errorElement = document.getElementById("email-error");
 
             if (email == "" || password == "") {
@@ -88,6 +105,33 @@
             if (email.indexOf("@") == -1) {
                 errorElement.innerHTML = "Please enter a valid email address";
                 return false;
+            }
+        }
+
+        function toggleForm() {
+            var loginForm = document.getElementById("loginForm");
+            var signupForm = document.getElementById("signupForm");
+            var formTitle = document.getElementById("form-title");
+
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                signupForm.style.display = "none";
+                formTitle.innerHTML = "Login";
+            } else {
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+                formTitle.innerHTML = "Sign Up";
+            }
+
+            var signInButton = document.getElementById("sign-in-button");
+            var signUpButton = document.getElementById("sign-up-button");
+
+            if (loginForm.style.display === "none") {
+                signInButton.style.display = "block";
+                signUpButton.style.display = "none";
+            } else {
+                signInButton.style.display = "none";
+                signUpButton.style.display = "block";
             }
         }
     </script>
