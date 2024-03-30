@@ -7,12 +7,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
         body{
-            background-color: #f2ebe6;
+            background-color: #E9D6B3;
         }
         .login-window{
             width: 500px;
             height: 400px;
-            background-color: #fff;
+            background-color: #f2ebe6;
             border-radius: 10px;
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
             position: absolute;
@@ -24,6 +24,11 @@
         .btn{
             width: 100%;
             margin-top: 10px;
+        }
+
+        #sign-in-btn, #sign-up-btn {
+            background-color: #5A463B;
+            border-color: #5A463B;
         }
 
         .text-center {
@@ -51,7 +56,7 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary" id="sign-in-btn">Login</button>
             </form>
             <form id="signupForm" name="signupForm" action="index.html" method="post" style="display: none;" onsubmit="return validateForm('signupForm')">
                 <div class="mb-3">
@@ -63,7 +68,7 @@
                     <label for="signup-password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="signup-password" name="signup-password">
                 </div>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn btn-primary" id="sign-up-btn">Sign Up</button>
                 <div class="text-center mt-3">
                     <button class="btn btn-link" id="sign-in-button" onclick="toggleForm()">Already have an Account? Sign-in</button>
                 </div>
