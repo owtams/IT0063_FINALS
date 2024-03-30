@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <head lang="en">
-
-<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cafe</title>
+    <title>Vitalitea</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-</head>
-
-<style>
+    <style>
     .sidebar-contents {
         height: 100%;
         width: 250px;
@@ -32,11 +26,21 @@
     }
 
     .btn1 {
-        position: absolute;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
+        margin-bottom: 50px;
+        background-color: #9c7419;
+        color: white;
+        font-size: 20px;
+        FONT-FAMILY: Kanit;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px;
+        text-align: center;
+        transition: 0.5s;
+    }
+
+    .btn2 {
+        margin-bottom: 50px;
         background-color: #9c7419;
         color: white;
         font-size: 20px;
@@ -50,6 +54,13 @@
     }
 
     .btn1:hover {
+        background-color: black;
+        COLOR: #9c7419;
+        font-size: 24px;
+
+    }
+
+    .btn2:hover {
         background-color: black;
         COLOR: #9c7419;
         font-size: 24px;
@@ -76,9 +87,12 @@
         box-sizing: border-box;
     }
 
+    
+
     body {
         min-height: 100vh;
         display: flex;
+        margin: 0;
         align-items: center;
         justify-content: center;
         background-color: #F2EBE6;
@@ -146,7 +160,6 @@
         }
     }
 
-    <!---->
     .carousel-inner>img {
         height: 110vh;
     }
@@ -165,10 +178,6 @@
         min-height: 100vh;
         width: 100%;
 
-    }
-
-    hr.h-color {
-        background: #eee;
     }
 
     .sidebar li.active {
@@ -233,65 +242,120 @@
     .menu-list .quantity-text {
         margin: 0 10px;
     }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    
+
+    .overlay-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 50%;
+        max-height: 80%;
+        overflow-y: auto;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    .form-group input[type="submit"] {
+        background-color: #9c7419;
+        color: white;
+        font-size: 20px;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px;
+        text-align: center;
+        transition: 0.5s;
+    }
+
+
+    .form-group input[type="submit"]:hover {
+        background-color: black; 
+        color: #9c7419; 
+        font-size: 24px; 
+    }
 </style>
 </head>
 
-
+<body>
 <div class="main-container d-flex">
     <div class="sidebar" id="side_nav">
         <div class="sidebar-contents">
-            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
-
+            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between"> 
                 <img class="logo" src="LOGO.png">
-                <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i
-                        class="fal fa-stream"></i></button>
+                <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fal fa-stream"></i></button>
             </div>
 
             <ul class="list-unstyled px-2">
-                <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"
-                        data-scroll-to="menu-section">M E N U </a></li>
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"
-                        data-scroll-to="about-section">A B O U T &nbsp;&nbsp;U S</a></li>
+                <li class="active"><a href="home.html" class="text-decoration-none px-3 py-2 d-block">M E N U </a></li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block" data-scroll-to="about-section">A B O U T &nbsp;&nbsp;U S</a></li>
                 <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">F A Q S</a></li>
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">J O I N &nbsp;&nbsp;
-                        U S</a></li>
-            </ul>
-
-            <ul class="list-unstyled px-2">
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
-                        P R O F I L E</a></li>
-                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">
-                        S E T T I N G S</a></li>
-
             </ul>
         </div>
     </div>
     <div class="content">
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav class="navbar">
             <div class="container-fluid">
                 <div class="d-flex justify-content-between d-md-none d-block">
                     <button class="btn px-1 py-0 open-btn me-2"><i class="fal fa-stream"></i></button>
-                    <img class="logo2" src="LOGO.png"> <!--CL-->
-
+                    <img class="logo2" src="LOGO.png">
                 </div>
-
-
             </div>
         </nav>
-
-      
         <div class="content">
             <div id="menu-section" class="menu-section">
-                <h1>Menu</h1>
+                <h1>Coffee</h1>
                 <div class="menu-list row">
                     <div class="col-md-4 mb-4">
                         <div class="item">
                             <img src="brewed.jpg" alt="Brewed Coffee">
                             <div class="item-details">
-                                <h2>Brewed Coffee</h2>
+                                <h2>Brewed Coffee: 90.00 PHP</h2>
                                 <div class="quantity">
                                     <button class="btn btn-sm btn-secondary minus-btn">-</button>
-                                    <span class="quantity-text">1</span>
+                                    <span class="quantity-text">0</span>
                                     <button class="btn btn-sm btn-secondary plus-btn">+</button>
                                 </div>
                             </div>
@@ -299,12 +363,12 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="item">
-                            <img src="brewed.jpg" alt="Latte">
+                            <img src="latte.jpg" alt="Latte">
                             <div class="item-details">
-                                <h2>Latte</h2>
+                                <h2>Latte: 120.00 PHP</h2>
                                 <div class="quantity">
                                     <button class="btn btn-sm btn-secondary minus-btn">-</button>
-                                    <span class="quantity-text">1</span>
+                                    <span class="quantity-text">0</span>
                                     <button class="btn btn-sm btn-secondary plus-btn">+</button>
                                 </div>
                             </div>
@@ -312,55 +376,295 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="item">
-                            <img src="brewed.jpg" alt="Cappuccino">
+                            <img src="cpcn.jpg" alt="Cappuccino">
                             <div class="item-details">
-                                <h2>Cappuccino</h2>
+                                <h2>Cappuccino: 100.00 PHP</h2>
                                 <div class="quantity">
                                     <button class="btn btn-sm btn-secondary minus-btn">-</button>
-                                    <span class="quantity-text">1</span>
+                                    <span class="quantity-text">0</span>
                                     <button class="btn btn-sm btn-secondary plus-btn">+</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--pagawa same sa mga pastry thanks-->
+                    <div class="col-md-4 mb-4">
+                        <div class="item">
+                            <img src="hc.jpg" alt="Hot Choco">
+                            <div class="item-details">
+                                <h2>Hot Chocolate: 80.00 PHP</h2>
+                                <div class="quantity">
+                                    <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                    <span class="quantity-text">0</span>
+                                    <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="item">
+                            <img src="cm.jpg" alt="Cafe Mocha">
+                            <div class="item-details">
+                                <h2>Cafe Mocha: 130.00 PHP</h2>
+                                <div class="quantity">
+                                    <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                    <span class="quantity-text">0</span>
+                                    <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="item">
+                            <img src="carmac.jpg" alt="Caramel Macchiato">
+                            <div class="item-details">
+                                <h2>Caramel Macchiato: 120.00 PHP</h2>
+                                <div class="quantity">
+                                    <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                    <span class="quantity-text">0</span>
+                                    <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div id="menu-section" class="menu-section">
+                            <h1>Pastries</h1>
+                            <div class="menu-list row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="item">
+                                        <img src="rv.jpg" alt="Pastry">
+                                        <div class="item-details">
+                                            <h2>Red Velvet Cake: 120.00 PHP</h2>
+                                            <div class="quantity">
+                                                <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                                <span class="quantity-text">0</span>
+                                                <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="item">
+                                        <img src="bbcc.jpg" alt="Pastry">
+                                        <div class="item-details">
+                                            <h2>Blueberry Cheesecake: 150.00 PHP</h2>
+                                            <div class="quantity">
+                                                <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                                <span class="quantity-text">0</span>
+                                                <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="item">
+                                        <img src="ccc.jpg" alt="Pastry">
+                                        <div class="item-details">
+                                            <h2>Chocolate Chip Cookies: 40.00 PHP</h2>
+                                            <div class="quantity">
+                                                <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                                <span class="quantity-text">0</span>
+                                                <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
 
+                                <div class="col-md-4 mb-4">
+                                    <div class="item">
+                                        <img src="ep.jpg" alt="Pastry">
+                                        <div class="item-details">
+                                            <h2>Revel Bar: 50.00 PHP</h2>
+                                            <div class="quantity">
+                                                <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                                <span class="quantity-text">0</span>
+                                                <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 mb-4">
+                                    <div class="item">
+                                        <img src="rb.jpg" alt="Pastry">
+                                        <div class="item-details">
+                                            <h2>Blueberry Delights: 70.00 PHP</h2>
+                                            <div class="quantity">
+                                                <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                                <span class="quantity-text">0</span>
+                                                <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 mb-4">
+                                    <div class="item">
+                                        <img src="crs.jpg" alt="Pastry">
+                                        <div class="item-details">
+                                            <h2>Cinnamon Rolls: 120.00 PHP</h2>
+                                            <div class="quantity">
+                                                <button class="btn btn-sm btn-secondary minus-btn">-</button>
+                                                <span class="quantity-text">0</span>
+                                                <button class="btn btn-sm btn-secondary plus-btn">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkout-button text-center mt-4">
+                                    <button class="btn2" onclick="showCheckoutOverlay()">Checkout</button>
+                                </div>
+                            </div> 
+                        </div>
+                    </div> 
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-</body>
+<div class="overlay" id="checkout-overlay" style="display: none;">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeCheckoutOverlay()">X</span>
+        <div class="menu-container">
+            <div class="menu-title">
+                <h1>CUSTOMER DETAILS</h1>
+            </div>
+            <div class="customer-form">
+                <form id="customerForm" onsubmit="return submitForm()">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" placeholder="Enter your address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit Order" class="btn2">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<div class="overlay" id="sales-invoice-overlay" style="display: none;"  >
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeSalesInvoiceOverlay()">X</span>
+        <div class="menu-container">
+            <div class="menu-title">
+                <h1>SALES INVOICE</h1>
+            </div>
+            <div class="customer-details">
+                <h2>Customer Details:</h2>
+                <p><strong>Name:</strong> <span id="invoiceCustomerName"></span></p>
+                <p><strong>Address:</strong> <span id="invoiceCustomerAddress"></span></p>
+                <p><strong>Phone:</strong> <span id="invoiceCustomerPhone"></span></p>
+            </div>
+            <div class="order-details">
+                <h2>Order Summary:</h2>
+                <ul id="invoiceOrderSummary"></ul>
+                <p><strong>Total Price:</strong> PHP <span id="invoiceTotalPrice"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function () {
-        $(".sidebar ul li").on('click', function () {
-            $(".sidebar ul li.active").removeClass('active');
-            $(this).addClass('active');
-
-            var sectionId = $(this).find('a').attr('data-scroll-to');
-            scrollToSection(sectionId);
+        $('.plus-btn').on('click', function () {
+            var $quantityInput = $(this).siblings('.quantity-text');
+            var newValue = parseInt($quantityInput.text()) + 1;
+            $quantityInput.text(newValue);
         });
 
-        $('.open-btn').on('click', function () {
-            $('.sidebar').addClass('active');
+        $('.minus-btn').on('click', function () {
+            var $quantityInput = $(this).siblings('.quantity-text');
+            var newValue = parseInt($quantityInput.text()) - 1;
+            if (newValue >= 0) {
+                $quantityInput.text(newValue);
+            }
         });
-
-        $('.close-btn').on('click', function () {
-            $('.sidebar').removeClass('active');
-        });
-
-        function scrollToSection(sectionId) {
-            var section = document.getElementById(sectionId);
-            section.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
     });
-</script>
 
+    function submitForm() {
+        var name = document.getElementById("name").value;
+        var address = document.getElementById("address").value;
+        var phone = document.getElementById("phone").value;
+        var orderSummary = getOrderSummary();
+
+
+        document.getElementById("invoiceCustomerName").innerText = name;
+        document.getElementById("invoiceCustomerAddress").innerText = address;
+        document.getElementById("invoiceCustomerPhone").innerText = phone;
+
+
+        if (orderSummary.trim() !== "") {
+            document.getElementById("invoiceOrderSummary").innerHTML = orderSummary;
+        } else {
+            document.getElementById("invoiceOrderSummary").innerHTML = "No items selected.";
+        }
+
+        var totalPrice = calculateTotalPrice();
+        document.getElementById("invoiceTotalPrice").innerText = totalPrice;
+
+        showSalesInvoiceOverlay();
+
+        return false;
+    }
+
+    function getOrderSummary() {
+        var orderSummary = "";
+        var items = document.querySelectorAll(".item");
+
+        items.forEach(function (item) {
+            var itemName = item.querySelector("h2").innerText;
+            var quantity = parseInt(item.querySelector(".quantity-text").innerText);
+            var itemPrice = parseFloat(item.querySelector("h2").innerText.split(":")[1].trim());
+            var subtotal = quantity * itemPrice;
+            if (quantity > 0) {
+                orderSummary += "<li>" + itemName + " x " + quantity + " = PHP " + subtotal.toFixed(2) + "</li>";
+            }
+        });
+
+        return orderSummary;
+    }
+
+    function calculateTotalPrice() {
+        var total = 0;
+        var items = document.querySelectorAll(".item");
+
+        items.forEach(function (item) {
+            var quantity = parseInt(item.querySelector(".quantity-text").innerText);
+            var itemPrice = parseFloat(item.querySelector("h2").innerText.split(":")[1].trim());
+            total += quantity * itemPrice;
+        });
+
+        return total.toFixed(2);
+    }
+
+    function showSalesInvoiceOverlay() {
+        document.getElementById("sales-invoice-overlay").style.display = "block";
+    }
+
+    function closeSalesInvoiceOverlay() {
+        document.getElementById("sales-invoice-overlay").style.display = "none";
+    }
+
+    function closeCheckoutOverlay() {
+        document.getElementById("checkout-overlay").style.display = "none";
+    }
+
+    function showCheckoutOverlay() {
+        document.getElementById("checkout-overlay").style.display = "block";
+    }
+</script>
+</body>
 </html>
